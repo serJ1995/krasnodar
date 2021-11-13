@@ -1,47 +1,44 @@
- " use strict ";
+/* Задание на урок:
 
-let number = 5; 
-const BorderLeftBottom = 1;
+1) Создать переменную numberOfFilms и в неё поместить ответ от пользователя на вопрос:
+'Сколько фильмов вы уже посмотрели?'
 
-number = 10;
-console.log (number);
+2) Создать объект personalMovieDB и в него поместить такие свойства:
+    - count - сюда передается ответ на первый вопрос
+    - movies - в это свойство поместить пустой объект
+    - actors - тоже поместить пустой объект
+    - genres - сюда поместить пустой массив
+    - privat - в это свойство поместить boolean(логическое) значение false
 
-const obj = {
-    name: 'Sergey',
-    age: 23,
-    isMarried: false
+3) Задайте пользователю по два раза вопросы:
+    - 'Один из последних просмотренных фильмов?'
+    - 'На сколько оцените его?'
+Ответы стоит поместить в отдельные переменные
+Записать ответы в объект movies в формате: 
+    movies: {
+        'logan': '8.1'
+    }
+
+Проверить, чтобы все работало без ошибок в консоли */
+
+' use strict';
+
+const numberOfFilms = +prompt ('Сколько фильмов вы уже посмотрели?', '');
+
+const personalMovieDB = {
+   count: numberOfFilms,
+   movies: {},
+   actors: {},
+   genres: [],
+   privat: false
 };
 
-console.log(obj.age);
+const a = prompt('Один из последних просмотренных фильмов?', ''),
+      b = prompt('На сколько оцените его?', ''),
+      c = prompt('Один из последних просмотренных фильмов?', ''),
+      d = prompt('На сколько оцените его?', '');
 
-let firstArr = ['apple', 'juise', 23, false, {}, [], NaN];
-console.log(firstArr[3]);
+personalMovieDB.movies[a] = b;
+personalMovieDB.movies[c] = d;
 
-//const age = +prompt("Вам есть 18?", "18");
-//console.log(typeof(age));
-
-//const answers = [];
-
-//answers [0] = prompt("Как вас зовут?", "");
-//answers [1] = prompt("Как ваша фамилия?", "");
-//answers [2] = prompt("Сколько вам лет?", "");
-
-//document.write (answers);
-
-
-//const user = "Sergey";
-
-//alert(`Привет, ${user}`);
-
-//ИНТЕРПОЛЯЦИЯ
-
-const isChecked = true,
-      isClose = true;
-      
-console.log(isChecked && !isClose);
-
-console.log(isChecked || !isClose);
-
-//ОПЕРАТОРЫ В JS
-
-
+console.log(personalMovieDB);
