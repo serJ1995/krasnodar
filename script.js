@@ -1,13 +1,14 @@
 
 ' use strict ';
 
-function learnJS(lang, callback) {
-    console.log(`Я учу: ${lang}`);
-    callback();
-}
+const options = {
+    name: 'test',
+    width: 1024,
+    height: 1024,
+    colors: {
+        border: 'black',
+        bg: 'red'
+    }
+};
 
-function done() {
-    console.log('Я прошел этот урок!');
-}
-
-learnJS('JavaScript', done);
+console.log(options.name);
