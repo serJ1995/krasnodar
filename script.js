@@ -1,41 +1,24 @@
 
 ' use strict ';
 
-const options = {
-    name: 'test',
-    width: 1024,
-    height: 1024,
-    colors: {
-        border: 'black',
-        bg: 'red'
-    },
-     makeTest: function() {
-        console.log('Tset');
-    }
-};
+const arr = [1, 2, 4, 6, 8];
 
-options.makeTest();
+// arr[99] = 0; //НАРУШАЕМ ПОРЯДОК ЭЛЕМЕНТОВ В МАССИВЕ
+// console.log(arr.length); //ПОЛУЧАЕМ 100 ЭЛЕМЕНТОВ
+// console.log(arr); //+94 ПУСТЫЕ ЯЧЕЙКИ
 
-const {border, bg} = options.colors; //ДЕСТРУКТУРИЗАЦИЯ ОБЪЕКТА
-console.log(border);
+arr.forEach(function (item, i, arr){
+    console.log(`${i}: ${item} внутри массива ${arr}`); //ИНТЕРЕСНЫЙ ПЕРЕБОР
+});
 
-//console.log(Object.keys(options).length); //ОПРЕДЕЛЯЕМ КОЛИЧЕСТВО КЛЮЧЕЙ В ОБЪЕКТЕ
+//arr.pop();//УБИРАЕМ ПОСЛЕДНИЙ ЭЛЕМЕНТ МАССИВА
+// arr.push(10);//ДОБАВЛЯЕМ ЭЛЕМЕНТ В КОНЕЦ
+// console.log(arr);
 
-// console.log(options.name);
+// for (let i = 0; i < arr.length; i++) {//ПЕРЕБИРАЕМ ЭЛЕМЕНТЫ МАССИВА С ПОМОЩЬЮ ПРОСТОГО ЦИКЛА
+//     console.log(arr[i]);
+// }
 
-// delete options.name;
-
-// console.log(options);
-
-
-
-for (let key in options) {
-    if (typeof (options[key]) === 'object') {
-        for (let i in options[key]) {
-            console.log(`Свойство ${i} имеет значение ${options[key][i]}`);
-        }
-    }else {
-        console.log(`Свойство ${key} имеет значение ${options[key]}`);
-    }
-    
+for (let value of arr){//ПЕРЕБОР С ПОМОЩЬЮ ЦИКЛА FOR OFF
+    console.log(value);
 }
