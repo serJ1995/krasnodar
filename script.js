@@ -1,35 +1,116 @@
-
 ' use strict ';
 
-const arr = [1, 12, 42, 6, 18];
-arr.sort(compareNum);//СОРТИРУЕМ ПО ВОЗРАСТАНИЮ ПЕРВОГО ЧИСЛА
-console.log(arr);
+let a = 5,
+    b = a;
+b = b + 5;
+console.log(b);
+console.log(a);
 
-function compareNum(a, b) { // СОРТИРУЕМ ЧИСЛА ПРАВИЛЬНО 
-    return a - b;
+// const obj = {
+//     a : 5,
+//     b : 1
+// };
+
+// const copy = obj; //ссылка на уже существующий объект
+// copy.a = 10;
+
+// console.log(copy);
+// console.log(obj);
+
+
+
+function copy(mainObj) {
+    let objCopy = {};
+
+    let key;
+    for ( key in mainObj) {
+        objCopy[key] = mainObj[key];
+    }
+
+    return objCopy;
 }
 
-// arr[99] = 0; //НАРУШАЕМ ПОРЯДОК ЭЛЕМЕНТОВ В МАССИВЕ
-// console.log(arr.length); //ПОЛУЧАЕМ 100 ЭЛЕМЕНТОВ
-// console.log(arr); //+94 ПУСТЫЕ ЯЧЕЙКИ
+const numbers = {
+    a: 2,
+    b: 5,
+    c: {
+        x: 7,
+        y: 4
+    }
+};
 
-// arr.forEach(function (item, i, arr){
-//     console.log(`${i}: ${item} внутри массива ${arr}`); //ИНТЕРЕСНЫЙ ПЕРЕБОР С МЕТОДОМ FOREACH? В ОСНОВНОМ ИСПОЛЬЗОВАТЬ ЕГО
-// });
+const newNumbers = copy (numbers); //КЛОНИРУЕМ ОБЪЕКТ
 
-//arr.pop();//УБИРАЕМ ПОСЛЕДНИЙ ЭЛЕМЕНТ МАССИВА
-// arr.push(10);//ДОБАВЛЯЕМ ЭЛЕМЕНТ В КОНЕЦ
-// console.log(arr);
+newNumbers.a = 10;
+newNumbers.c.x = 10;
 
-// for (let i = 0; i < arr.length; i++) {//ПЕРЕБИРАЕМ ЭЛЕМЕНТЫ МАССИВА С ПОМОЩЬЮ ПРОСТОГО ЦИКЛА
-//     console.log(arr[i]);
-// }
+// console.log(newNumbers);
+// console.log(numbers);
+ //ЗАПОМНИТЬ. БЫВАЮТ ГЛУБОКИЕ И ПОВЕРХНОСТНЫЕ КОПИИ ОБЪЕКТОВ
 
-// for (let value of arr){//ПЕРЕБОР С ПОМОЩЬЮ ЦИКЛА FOR OFF
-//     console.log(value);
-// }
 
-// const str = prompt("", "");
-// const product = str.split(", ");// МЕТОД СПЛИТ. ИЗ СТРОКИ ПОЛУЧАЕМ МАССИВ
-// product.sort();//МЕТОД СОРТИРОВКИ ПО АЛФАВИТУ
-// console.log(product.join('; '));//ИЗ МАССИВА СКЛЕИВАЕМ В СТРОКУ
+ const add = {
+     d : 17,
+     e : 20
+ };
+
+ console.log(Object.assign(numbers, add)); //СОЕДИНЯЕМ 2 МАССИВА 
+
+ const clone = Object.assign({}, add);
+ clone.d = 20;
+
+//  console.log(add);
+//  console.log(clone);
+
+
+const oldArray = ['a', 'b', 'c'];
+const newArray = oldArray.slice();  //КОПИРУЕМ МАССИВ
+
+newArray[1] = 'sadlkfjjksd';
+console.log(oldArray);
+console.log(newArray);
+
+
+const video = ['youtube', 'vimeo', 'rutube'],
+      blogs = ['wordpress', 'livejournal', 'blogger'],
+      internet = [...video, ...blogs, 'vk', 'facebook']; //СПРЕД МЕТОД РАЗВОРАЧИВАНИЯ И СКЛАДИРОВАНИЯ МАССИВОВ
+
+console.log(internet);
+
+
+
+
+function log (a, b, c) {
+    console.log(a);
+    console.log(b);
+    console.log(c);
+}
+
+const num = [2, 5, 7];
+
+log(...num);
+
+
+
+
+const array = ['a', 'b'];
+const newAaray = [...array];
+
+console.log(array);
+console.log(newAaray);
+
+
+
+const q = {
+    one: 1,
+    two: 2
+};
+const newObJ = {...q};
+console.log(newObJ);
+
+
+
+
+
+
+
