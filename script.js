@@ -76,7 +76,7 @@ const video = ['youtube', 'vimeo', 'rutube'],
       internet = [...video, ...blogs, 'vk', 'facebook']; //СПРЕД МЕТОД РАЗВОРАЧИВАНИЯ И СКЛАДИРОВАНИЯ МАССИВОВ
 
 console.log(internet);
-
+hjbhjb
 
 
 
